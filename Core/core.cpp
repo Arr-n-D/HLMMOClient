@@ -19,14 +19,13 @@ namespace ArrND::Core
     Core::Core()
     {
         Output::send<LogLevel::Verbose>(STR("Core initialized"));
-
     }
 
     Core::~Core()
     {
     }
 
-    AActor* Core::GetPlayer()
+    AActor *Core::GetPlayer()
     {
         return this->player;
     }
@@ -51,7 +50,7 @@ namespace ArrND::Core
                 if (foundPlayerHowManyTimes == 2)
                 {
                     Output::send<LogLevel::Verbose>(STR("Player found"));
-                    this->SetPlayer((AActor*) tempPlayer);
+                    this->SetPlayer((AActor *)tempPlayer);
                     foundPlayerHowManyTimes = 0;
                 }
             }
@@ -60,20 +59,26 @@ namespace ArrND::Core
         Unreal::UObjectGlobals::RegisterHook(STR("/Script/Engine.PlayerController:ClientRestart"), prehook, posthook, nullptr);
     }
 
-    void Core::OnUnrealInit()
-    {
+    void Core::OnUnrealInit() {
         this->GetPlayerInstanceFromGame();
         this->bIsInitialized = true;
-
+        this->SetGame(new Game(this->GetPlayer()));
+        
     }
 
-    void Core::SetPlayer(AActor* player)
-    {
-		this->player = player;
-	}
+    void Core::SetPlayer(AActor *player) {
+        this->player = player;
+    }
 
-    bool Core::isInitialized()
-    {
-		return this->bIsInitialized;
-	}
+    bool Core::isInitialized() {
+        return this->bIsInitialized;
+    }
+
+    void Core::SetGame(Game *game) {
+        this->game = game;
+    }
+
+    Game *Core::GetGame() {
+        return this->game;
+    }
 }

@@ -15,8 +15,12 @@ namespace ArrND::Core {
 
             void GetPlayerInstanceFromGame();
             void SetPlayer(AActor* player);
+            
             void OnUnrealInit();
             bool isInitialized();
+
+            void SetGame(Game* game);
+            Game* GetGame();
         private:
             AActor* player = nullptr;
             Game* game = nullptr;
