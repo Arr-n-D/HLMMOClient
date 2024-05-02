@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include <DynamicOutput/DynamicOutput.hpp>
 
 #include <chrono>
 
@@ -34,6 +35,7 @@ namespace ArrND::Core
 
     void Game::Update(float deltaFloat)
     {
+        Output::send<LogLevel::Verbose>(STR("Game::Update called"));
         this->OnUpdate(deltaFloat);
         // Call OnUpdate
     }

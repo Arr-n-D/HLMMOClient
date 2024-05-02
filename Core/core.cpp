@@ -32,10 +32,7 @@ namespace ArrND::Core
 
     void Core::GetPlayerInstanceFromGame()
     {
-        auto prehook = [](Unreal::UnrealScriptFunctionCallableContext &Context, void *CustomData)
-        {
-            // do nothing
-        };
+        auto prehook = [](Unreal::UnrealScriptFunctionCallableContext &Context, void *CustomData){};
 
         auto posthook = [this](Unreal::UnrealScriptFunctionCallableContext &Context, void *CustomData)
         {
@@ -63,7 +60,7 @@ namespace ArrND::Core
         this->GetPlayerInstanceFromGame();
         this->bIsInitialized = true;
         this->SetGame(new Game(this->GetPlayer()));
-        
+
     }
 
     void Core::SetPlayer(AActor *player) {
