@@ -9,7 +9,7 @@ using namespace ArrND;
 class HLMMOClient : public RC::CppUserModBase
 {
 public:
-   Core::Core *coreInstance;
+   Core::Core *coreInstance = new Core::Core();
 
     HLMMOClient() : CppUserModBase()
     {
@@ -27,12 +27,12 @@ public:
 
     auto on_update() -> void override
     {
-
+       
     }
 
     auto on_unreal_init() -> void override
     {
-        this->coreInstance = new Core::Core();    
+        this->coreInstance->OnUnrealInit();
     }
 
 };

@@ -1,7 +1,11 @@
-#include <Mod/CppUserModBase.hpp>
-#include <DynamicOutput/DynamicOutput.hpp>
-#include <Unreal/AActor.hpp>
+#pragma once
 
+#include <Unreal/AActor.hpp>
+#include "Game\Game.hpp"
+
+
+using namespace RC;
+using namespace RC::Unreal;
 namespace ArrND::Core {
     class Core {
         public:
@@ -9,8 +13,13 @@ namespace ArrND::Core {
             ~Core();
             AActor* GetPlayer();
 
-            bool GetPlayerInstanceFromGame() 
+            void GetPlayerInstanceFromGame();
+            void SetPlayer(AActor* player);
+            void OnUnrealInit();
+            bool isInitialized();
         private:
-            AActor* player;
+            AActor* player = nullptr;
+            Game* game = nullptr;
+            bool bIsInitialized = false;
     };
 }
