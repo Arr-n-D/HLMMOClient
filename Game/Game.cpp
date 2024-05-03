@@ -37,7 +37,6 @@ namespace ArrND::Core
     {
         Output::send<LogLevel::Verbose>(STR("Game::Update called"));
         this->OnUpdate(deltaFloat);
-        // Call OnUpdate
     }
     void Game::OnUpdate(float deltaFloat)
     {
