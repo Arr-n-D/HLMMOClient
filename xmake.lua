@@ -6,10 +6,16 @@ target(projectName)
     set_exceptions("cxx")
 
     add_includedirs(".")
+    add_includedirs("include")
 
     add_files("dllmain.cpp", "Core/core.cpp", "Game/Game.cpp")
+    
 
     add_deps("UE4SS")
+    add_links("GameNetworkingSockets")
+
+    -- Add link search directory
+    add_linkdirs("/")
 
     on_load(function (target)
         import("build_configs", { rootdir = get_config("scriptsRoot") })
