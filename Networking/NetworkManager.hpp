@@ -20,6 +20,8 @@ namespace ArrND::Networking
 
         void Init();
 
+        void Start();
+
         void Update(float deltaFloat);
 
         void OnUpdate(float deltaFloat);
@@ -50,8 +52,7 @@ namespace ArrND::Networking
         }
 
     private:
-        HSteamListenSocket m_hListenSock;
-        HSteamNetPollGroup m_hPollGroup;
+        HSteamNetConnection m_hConnection;
         ISteamNetworkingSockets *m_pInterface = nullptr;
     };
 }

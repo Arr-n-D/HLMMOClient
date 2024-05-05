@@ -8,7 +8,7 @@ target(projectName)
     add_includedirs(".")
     add_includedirs("./include")
 
-    add_files("dllmain.cpp", "Core/core.cpp", "Game/Game.cpp")
+    add_files("dllmain.cpp", "Core/core.cpp", "Game/Game.cpp", "Networking/NetworkManager.cpp", "Game/Player.cpp" )
     
 
     add_deps("UE4SS")
