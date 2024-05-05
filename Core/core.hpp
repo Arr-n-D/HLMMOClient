@@ -6,6 +6,7 @@
 
 using namespace RC;
 using namespace RC::Unreal;
+using namespace ArrND::Game;
 namespace ArrND::Core {
     class Core {
         public:
@@ -19,11 +20,11 @@ namespace ArrND::Core {
             void OnUnrealInit();
             bool isInitialized();
 
-            void SetGame(Game* game);
-            Game* GetGame();
+            void SetGame(Game::Game* game);
+            Game::Game* GetGame();
         private:
             AActor* player = nullptr;
-            Game* game = nullptr;
+            Game::Game* game = nullptr;
             bool bIsInitialized = false;
     };
 }

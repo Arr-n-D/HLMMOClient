@@ -5,7 +5,7 @@
 
 using namespace std::chrono;
 
-namespace ArrND::Core
+namespace ArrND::Game
 {
     Game::Game(AActor *player)
     {

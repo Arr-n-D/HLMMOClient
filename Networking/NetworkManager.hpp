@@ -49,7 +49,9 @@ namespace ArrND::Networking
             DebugOutput(k_ESteamNetworkingSocketsDebugOutputType_Bug, text);
         }
 
-        private:
-            ISteamNetworkingSockets *m_pInterface = nullptr;
+    private:
+        HSteamListenSocket m_hListenSock;
+        HSteamNetPollGroup m_hPollGroup;
+        ISteamNetworkingSockets *m_pInterface = nullptr;
     };
 }

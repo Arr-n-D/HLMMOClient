@@ -4,7 +4,7 @@
 
 using namespace RC;
 using namespace RC::Unreal;
-namespace ArrND::Core
+namespace ArrND::Game
 {
     class Game
     {

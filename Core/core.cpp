@@ -12,6 +12,7 @@
 
 using namespace RC;
 using namespace RC::Unreal;
+using namespace ArrND::Game;
 namespace ArrND::Core
 {
     int foundPlayerHowManyTimes = 0;
@@ -59,7 +60,7 @@ namespace ArrND::Core
     void Core::OnUnrealInit() {
         this->GetPlayerInstanceFromGame();
         this->bIsInitialized = true;
-        this->SetGame(new Game(this->GetPlayer()));
+        this->SetGame(new Game::Game(this->GetPlayer()));
 
     }
 
@@ -71,11 +72,11 @@ namespace ArrND::Core
         return this->bIsInitialized;
     }
 
-    void Core::SetGame(Game *game) {
+    void Core::SetGame(Game::Game *game) {
         this->game = game;
     }
 
-    Game *Core::GetGame() {
+    Game::Game *Core::GetGame() {
         return this->game;
     }
 }
