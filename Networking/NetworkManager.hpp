@@ -7,8 +7,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-SteamNetworkingMicroseconds g_logTimeZero;
-
 namespace ArrND::Networking
 {
     class NetworkManager
@@ -51,8 +49,19 @@ namespace ArrND::Networking
             DebugOutput(k_ESteamNetworkingSocketsDebugOutputType_Bug, text);
         }
 
+        static void SteamNetConnectionStatusChangedCallback(SteamNetConnectionStatusChangedCallback_t *pInfo)
+        {
+            s_pCallbackInstance->OnSteamNetConnectionStatusChanged(pInfo);
+        }
+
     private:
         HSteamNetConnection m_hConnection;
         ISteamNetworkingSockets *m_pInterface = nullptr;
+
+        static NetworkManager *s_pCallbackInstance; // Used for OnSteamNetConnectionStatusChanged since we cannot cast a member function to a void pointer
+        static bool g_bQuit;
+        static SteamNetworkingMicroseconds g_logTimeZero;
+        void PollConnectionStateChanges();
+        void OnSteamNetConnectionStatusChanged(SteamNetConnectionStatusChangedCallback_t *pInfo);
     };
 }

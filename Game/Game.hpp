@@ -1,9 +1,11 @@
 #pragma once
 
 #include <Unreal/AActor.hpp>
+#include "Networking/NetworkManager.hpp"
 
 using namespace RC;
 using namespace RC::Unreal;
+using namespace ArrND::Networking;
 namespace ArrND::Game
 {
     class Game
@@ -16,6 +18,7 @@ namespace ArrND::Game
             void OnUpdate(float deltaFloat);
 
         private: 
+        NetworkManager* networkManager = nullptr;
         AActor* player = nullptr;
             // networking class right here
     };

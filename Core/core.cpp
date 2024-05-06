@@ -47,7 +47,7 @@ namespace ArrND::Core
 
                 if (foundPlayerHowManyTimes == 2)
                 {
-                    Output::send<LogLevel::Verbose>(STR("Player found"));
+                    Output::send<LogLevel::Verbose>(STR("Player found\n"));
                     this->SetPlayer((AActor *)tempPlayer);
                     foundPlayerHowManyTimes = 0;
                 }
