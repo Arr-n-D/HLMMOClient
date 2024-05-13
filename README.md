@@ -32,11 +32,13 @@ xmake
 
 6. After that is completed, install the latest version of [UE4SS and follow the instructions](https://docs.ue4ss.com/installation-guide.html) - in the context of the installation, if you installed Hogwarts Legacy via Steam, you should be placing the files in `steamapps\common\Hogwarts Legacy\Phoenix\Binaries\Win64`
 
-7. Follow the instructions for [Installing a C++ Mod](https://docs.ue4ss.com/guides/installing-a-c++-mod.html) and make sure you copy over the following files from your `Client/Binaries/Game__Shipping_Win64/HLMMOClient` folder: `HLMMOClient.dll`, `HLMMOClient.lib` - make sure to rename the `HLMMOClient.dll` to `main.dll` as per the UE4SS instructions
+7. Follow the instructions for [Installing a C++ Mod](https://docs.ue4ss.com/guides/installing-a-c++-mod.html) and make sure you copy over the following file from your `Client/Binaries/Game__Shipping_Win64/HLMMOClient` folder: `HLMMOClient.dll` - make sure to rename the `HLMMOClient.dll` to `main.dll` as per the UE4SS instructions
 
-8. Copy over the GameNetworking library files from the `HLMMOServer` repo -> `GameNetworkingSockets.dll`, `GameNetworkingSockets.lib`, `libcrypto-3-x64.dll`, and `libprotobufd.dll`
+8. In the `Client/Binaries/Game__Shipping_Win64/UE4SS`, copy `UE4SS.dll` and `UE4SS.lib` over into `steamapps\common\Hogwarts Legacy\Phoenix\Binaries\Win64` and if asked, select to overwrite existing files
 
-9. Your `Mods/HLMMOClient` folder should look like this:
+9. Copy over the GameNetworking library files from the `HLMMOServer` repo -> `GameNetworkingSockets.dll`, `GameNetworkingSockets.lib`, `libcrypto-3-x64.dll`, and `libprotobufd.dll`
+
+10. Your `Mods/HLMMOClient` folder should look like this:
 
 ```
 dlls/
