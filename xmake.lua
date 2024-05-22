@@ -1,12 +1,21 @@
 local projectName = "HLMMOClient"
+add_rules("mode.debug", "mode.release")
+
+add_requires("boost")
 
 target(projectName)
     set_kind("shared")
     set_languages("cxx20")
     set_exceptions("cxx")
 
+    add_packages("boost")
+    add_packages("msgpack")
     add_includedirs(".")
     add_includedirs("./include")
+
+     if is_mode("debug") then
+        add_defines("DEBUG")
+    end
 
     add_files("dllmain.cpp", "Core/core.cpp", "Game/Game.cpp", "Networking/NetworkManager.cpp", "Game/Player.cpp" )
     
