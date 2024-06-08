@@ -39,6 +39,7 @@ namespace ArrND::Game
 
             this->Update(elapsedTime);
             deltaTime = elapsedTime;
+            this->networkManager->Update(deltaTime);
         }
     }
 

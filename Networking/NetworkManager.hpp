@@ -1,11 +1,16 @@
 #pragma once
-
+#include <Mod/CppUserModBase.hpp>
+#include <DynamicOutput/DynamicOutput.hpp>
 #include <steam/steamnetworkingsockets.h>
 #include <steam/isteamnetworkingutils.h>
 #include <string.h>
 #include <string>
 #include <stdio.h>
 #include <stdarg.h>
+#include "msgpack.hpp"
+
+using namespace RC;
+using namespace RC::Unreal;
 
 namespace ArrND::Networking
 {
@@ -23,6 +28,8 @@ namespace ArrND::Networking
         void Update(float deltaFloat);
 
         void OnUpdate(float deltaFloat);
+
+        void PollIncomingMessages();
 
         static void DebugOutput(ESteamNetworkingSocketsDebugOutputType eType, const char *pszMsg)
         {
@@ -63,5 +70,6 @@ namespace ArrND::Networking
         static SteamNetworkingMicroseconds g_logTimeZero;
         void PollConnectionStateChanges();
         void OnSteamNetConnectionStatusChanged(SteamNetConnectionStatusChangedCallback_t *pInfo);
+        void OnMessageReceived(ISteamNetworkingMessage *pMsg);
     };
 }

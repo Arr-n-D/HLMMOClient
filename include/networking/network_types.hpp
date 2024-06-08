@@ -3,7 +3,7 @@
 #include <iostream>
 #include "msgpack.hpp"
 
-enum class PacketType {
+enum PacketType {
     RPC = 0,
     GameMessage = 1,
 };
@@ -17,6 +17,6 @@ struct Packet {
 };
 
 struct GameMessageDiscordAuthRequest {
-    std::string token;
-    MSGPACK_DEFINE(token);
+    std::string redirectionUrl;
+    MSGPACK_DEFINE(redirectionUrl);
 };
